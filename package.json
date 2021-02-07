@@ -1,0 +1,61 @@
+{
+ "name": "puppeteer-utils-test",
+ "version": "0.0.0",
+ "jenkinsV": "0.0.0",
+ "private": false,
+ "files": [
+  "config",
+  "bin",
+  "scripts"
+ ],
+ "main": "scripts/index.js",
+ "bin": {
+  "hf-rules": "./bin/index.js"
+ },
+ "dependencies": {
+  "chalk": "^4.1.0",
+  "inquirer": "^7.3.3",
+  "npm-registry-client": "^8.6.0",
+  "ora": "^5.1.0",
+  "rimraf": "^3.0.2"
+ },
+ "devDependencies": {
+  "chokidar": "^3.4.2",
+  "eslint": "^7.10.0",
+  "eslint-plugin-node": "^11.1.0",
+  "husky": "^4.3.8",
+  "puppeteer": "^7.0.1"
+ },
+ "scripts": {
+  "lint": "eslint ./scripts/**/*.js  ./bin/**/*.js",
+  "start": "npm run dev",
+  "dev": "node ./scripts/watcher.js",
+  "debug": "node --inspect ./scripts/watcher.js"
+ },
+ "husky": {
+  "hooks": {
+   "commit-msg": "node ./bin/index.js commitMessage",
+   "pre-commit": "npm run lint",
+   "pre-push": "npm run lint"
+  }
+ },
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/appletxm/puppeteer-utils-test.git"
+ },
+ "keywords": [
+  "rules check",
+  "nodejs"
+ ],
+ "author": {
+  "name": "appletxm@163.com"
+ },
+ "license": "ISC",
+ "bugs": {
+  "url": "https://github.com/appletxm/puppeteer-utils-test/issues"
+ },
+ "type": "commonjs",
+ "node": {
+  "version": ">=10.0.0"
+ }
+}
